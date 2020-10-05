@@ -2,6 +2,8 @@
 
 namespace Src\Controllers;
 
+use Src\Parsers\CsvParser;
+
 class CsvController extends BaseController
 {
     public function handle()
@@ -10,6 +12,16 @@ class CsvController extends BaseController
             $this->fail("please specify file name in 'input' folder to proceed");
         }
 
-        $this->getPrinter()->print(sprintf("Hello, %s!", $filename));
+        $parser = new CsvParser();
+        $converted = $parser->convert($filename);
+
+        if($converted){
+            $this->getPrinter()->success(
+                'file '.$filename.' was successfully converted to "output_'.$filename.'" file! Please check output folder.'
+            );
+        }else{
+            $this->getPrinter()->error('Some error happened during conversion!');
+        }
+
     }
 }
