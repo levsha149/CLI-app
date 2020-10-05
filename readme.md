@@ -4,7 +4,7 @@ This is the project described in:
 
 /docs/Software Engineer (PHP) - Engineering Assessment .pdf
 
-I spent something close to 4-5 hours on it. You can try it on any server that supports PHP, Composer and command line interface.
+You can try it on any server that supports PHP, Composer and command line interface.
 
 * * *
 
@@ -64,13 +64,13 @@ certain file extension - csv.php for CSV files, xls.php for Excel files and so o
 
 <h3>Notes:</h3>
 
-I chose the simpliest variant of transitions storing, because I tried to finish job in 4 hours. I hope I understood your 
-task well in this regard. Also I skipped unit testing for the same reason - not enough time.
+I chose the simplest variant of transitions, because of time limit. Also I skipped unit testing for the same reason - not enough time.
+Transition storing method is not very elegant, but that's the closest thing to a working example, that I could produce in 4 hours.
 
 I did not loaded it to any public repository (as you asked in documentation), but added gitignore files for demonstration purposes. 
 
 * * *
 
-I hope all this was useful and readable, or at least you had fun reading this :D.
+I hope all this was useful and readable, or at least you had fun reading it :D.
  
  Looking forward to your opinion.
