@@ -2,7 +2,7 @@
 namespace Src\Helpers;
 
 /**
- * This class is responsible for console printing
+ * This class is responsible for console printing.
  * Class Printer
  * @package Src\Components
  */
