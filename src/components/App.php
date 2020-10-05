@@ -4,7 +4,7 @@ namespace Src\Components;
 use Src\Controllers\BaseController;
 use Src\Helpers\Registrator;
 use Src\Helpers\Printer;
-use Src\Parsers\ArgumentParser;
+use Src\Components\Input;
 
 /**
  * main application class
@@ -86,7 +86,7 @@ class App{
         //by default show some help info to the user
         $command_name = 'help';
 
-        $input = new ArgumentParser($argv);
+        $input = new Input($argv);
 
          //show command signature if user mistyped in cli
         if (count($input->arguments) < 2) {

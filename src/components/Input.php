@@ -1,8 +1,8 @@
 <?php
-namespace Src\Parsers;
+namespace Src\Components;
 
 
-class ArgumentParser
+class Input
 {
     public $command;
 

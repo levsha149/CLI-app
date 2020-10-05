@@ -6,7 +6,7 @@
 namespace Src\Controllers;
 
 use Src\Components\App;
-use Src\Parsers\ArgumentParser;
+use Src\Components\Input;
 
 abstract class BaseController
 {
@@ -21,9 +21,9 @@ abstract class BaseController
         $this->app = $app;
     }
 
-    public function run(ArgumentParser $input = null)
+    public function run(Input $input = null)
     {
-        $this->input = $input ?? new ArgumentParser();
+        $this->input = $input ?? new Input();
         $this->handle();
     }
 
