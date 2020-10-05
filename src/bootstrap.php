@@ -5,6 +5,11 @@ use Src\Controllers\CsvController;
 
 $app = new App();
 
+function D($data){
+    print_r($data);
+    exit;
+}
+
 /**
  * Here we can register new commands as controllers via registerController(command_name, controller_instance)
  * or as anonymous functions via registerCommand(command_name, callable_function) for quick hacks, if needed

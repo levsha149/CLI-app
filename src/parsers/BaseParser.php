@@ -4,11 +4,32 @@ namespace Src\Parsers;
 abstract class BaseParser{
     protected static $extension;
 
+    /**
+     * parses file content into associative array
+     * @param $filename
+     * @return mixed
+     */
     abstract public function parse($filename);
 
-    abstract public function getResultArray($rows);
+    /**
+     * performs data transition logic
+     * @param $rows
+     * @return mixed
+     */
+    abstract public function convertRows($rows);
 
-    public abstract function convert($filename);
+    /**
+     * main conversion function, should be called from controller
+     * @param $filename
+     * @return mixed
+     */
+    abstract public function convert($filename);
+
+    /**
+     * gets an array of rules of conversion of different data types in CSV file
+     * @return mixed
+     */
+    abstract public function getTransitions();
 
     /**
      * BaseParser constructor. Ensures that property $extension is set in all child classes

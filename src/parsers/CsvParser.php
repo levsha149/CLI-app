@@ -7,6 +7,15 @@ class CsvParser extends BaseParser
     protected static $extension = 'csv';
 
     /**
+     * gets array of transition callables from /src/transitions folder
+     * @return array
+     */
+    public function getTransitions() : array
+    {
+        return require_once __DIR__."/../transitions/".self::$extension.".php";
+    }
+
+    /**
      * Parses csv content into array
      * @param $filename
      * @return array
@@ -26,8 +35,6 @@ class CsvParser extends BaseParser
 
 
         $rows = [];
-
-
 
         $file = fopen($path, 'r');
 
@@ -72,9 +79,62 @@ class CsvParser extends BaseParser
      */
     public function convertRows($rows)
     {
-        //TODO: here should be the logic of conversion for label row and data rows of target CSV file
+        //first, get transition rules for given type of file
+        $transitions = $this->getTransitions();
+
+       foreach($rows as &$row){
+           foreach($row as &$cell){
+              $this->convertCell($cell, $transitions);
+           }
+       }
 
         return $rows;
+    }
+
+    /**
+     * Checks every cell of CSV row by type and applies appropriate transition
+     * @param $value
+     * @param $transitions
+     */
+    protected function convertCell(&$value, $transitions){
+
+        if(is_numeric($value)){
+            //if number
+            $transition = $transitions['numeric'] ?? null;
+            $this->performTransition($value, $transition);
+
+        }elseif(strtotime($value) != false){
+            //if date
+            $transition = $transitions['date'] ?? null;
+            $value = strtotime($value);
+            $this->performTransition($value, $transition);
+
+
+        }elseif(is_string($value)){
+            //if any other string
+            $transition = $transitions['string'] ?? null;
+            $this->performTransition($value, $transition);
+
+        }
+    }
+
+    /**
+     * @param $value
+     * @param $transition
+     */
+    private function performTransition(&$value, $transition){
+        if(!empty($transition)){
+            if(is_array($transition)){
+                foreach($transition as $rule){
+                    if(is_callable($rule)){
+                        $value = $rule($value);
+                    }
+
+                }
+            }elseif(is_callable($transition)){
+                $value = $transition($value);
+            }
+        }
     }
 
     /**
