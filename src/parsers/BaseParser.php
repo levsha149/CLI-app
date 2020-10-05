@@ -45,6 +45,7 @@ abstract class BaseParser{
 
     /**
      * checks if file have correct extension
+     * @param $filename
      * @return bool
      */
     protected function checkExtension($filename){
@@ -59,16 +60,27 @@ abstract class BaseParser{
 
     /**
      * checks if file physically present in input folder
+     * @param $filename
      * @return bool
      */
     protected function checkFile($filename){
         return is_file($filename);
     }
 
+    /**
+     * checks if file physically present in input folder
+     * @param $filename
+     * @return string
+     */
     protected function getSourcePath($filename){
         return __DIR__."/../../input/".$filename;
     }
 
+    /**
+     * checks if file physically present in input folder
+     * @param $filename
+     * @return string
+     */
     protected function getTargetPath($filename){
         return __DIR__."/../../output/".$filename;
     }
