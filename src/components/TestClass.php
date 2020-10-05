@@ -1,5 +1,5 @@
 <?php
-namespace Classes;
+namespace Components;
 
 class TestClass{
     public function __construct()

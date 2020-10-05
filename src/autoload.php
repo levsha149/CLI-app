@@ -6,7 +6,7 @@ $autoloader = new Autoloader();
 /**
  * register namespaces here
  */
-$autoloader->registerNamespace('Classes',  __DIR__ . '/classes');
+$autoloader->registerNamespace('Components', __DIR__ . '/components');
 
 
 /**
