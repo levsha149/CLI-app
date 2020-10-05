@@ -3,7 +3,8 @@
     "psr-4": {
       "Src\\": "src/",
       "Src\\Components\\": "src/components/",
-      "Src\\Helpers\\": "src/helpers/"
+      "Src\\Helpers\\": "src/helpers/",
+      "Src\\Controllers\\": "src/controllers/"
     }
   }
 }

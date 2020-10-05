@@ -9,7 +9,7 @@ namespace Src\Helpers;
 class Printer{
     public function out($message)
     {
-        echo $message;
+        print_r($message);
     }
 
     public function newline()
