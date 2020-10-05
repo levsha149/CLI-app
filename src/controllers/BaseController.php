@@ -6,7 +6,7 @@
 namespace Src\Controllers;
 
 use Src\Components\App;
-use Src\Components\ArgumentParser;
+use Src\Parsers\ArgumentParser;
 
 abstract class BaseController
 {

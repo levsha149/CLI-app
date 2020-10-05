@@ -4,7 +4,8 @@
       "Src\\": "src/",
       "Src\\Components\\": "src/components/",
       "Src\\Helpers\\": "src/helpers/",
-      "Src\\Controllers\\": "src/controllers/"
+      "Src\\Controllers\\": "src/controllers/",
+      "Src\\Parsers\\": "src/parsers/"
     }
   }
 }

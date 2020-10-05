@@ -4,6 +4,7 @@ namespace Src\Components;
 use Src\Controllers\BaseController;
 use Src\Helpers\Registrator;
 use Src\Helpers\Printer;
+use Src\Parsers\ArgumentParser;
 
 /**
  * main application class

@@ -1,5 +1,5 @@
 <?php
-namespace Src\Components;
+namespace Src\Parsers;
 
 
 class ArgumentParser
