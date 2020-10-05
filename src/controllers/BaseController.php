@@ -2,19 +2,21 @@
 /**
  * This is a base controller abstraction with basic methods of getting cli parameters and arguments passed to command
  */
+
 namespace Src\Controllers;
 
 use Src\Components\App;
 use Src\Components\ArgumentParser;
 
-abstract class BaseController{
+abstract class BaseController
+{
     protected $app;
 
     protected $input;
 
     abstract public function handle();
 
-    public function boot(App $app)
+    public function __construct(App $app)
     {
         $this->app = $app;
     }
@@ -42,7 +44,7 @@ abstract class BaseController{
 
     protected function getParameter($parameter)
     {
-        return $this->hasParameter($parameter) ? $this->getParameter($parameter) : null;
+        return $this->hasParameter($parameter) ? $this->input->getParameter($parameter) : null;
     }
 
     protected function getApp()

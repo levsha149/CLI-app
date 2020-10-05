@@ -25,10 +25,6 @@ class App{
         $this->printer = $printer ?? new Printer();
         $this->registrator = $registrator ?? new Registrator();
         $this->setSignature("converter {command_name} [ parameter=value ]");
-
-        $this->registerCommand("help", function() {
-            $this->printSignature();
-        });
     }
 
     /**
@@ -69,7 +65,7 @@ class App{
      */
     public function printSignature()
     {
-        $this->getPrinter()->print(sprintf("Command syntax: %s", $this->getSignature()));
+        $this->getPrinter()->info(sprintf("Command syntax: %s", $this->getSignature()));
     }
 
     /**
@@ -104,7 +100,7 @@ class App{
         try {
             call_user_func($this->registrator->getCallable($command_name), $input);
         } catch (\Exception $e) {
-            $this->getPrinter()->display("ERROR: " . $e->getMessage());
+            $this->getPrinter()->error("ERROR: " . $e->getMessage());
             exit;
         }
     }

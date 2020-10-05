@@ -6,14 +6,17 @@ use Src\Controllers\CsvController;
 $app = new App();
 
 /**
- * Here we can register new commands, passing name as first argument and respective controller,
- * that will be serving this command, as second argument of ->registerCommand().
+ * Here we can register new commands as controllers via registerController(command_name, controller_instance)
+ * or as anonymous functions via registerCommand(command_name, callable_function) for quick hacks, if needed
  *
- * The command can be called from cli in form of "php converter {command_name} [parameter=value]"
+ * Any command can be called from cli in form of "php converter {command_name} [parameter=value]"
  */
 
 $app->registerController('csv', new CsvController($app));
 
+$app->registerCommand("help", function() use ($app){
+    $app->printSignature();
+});
 
 /**
  * Console app is executed
