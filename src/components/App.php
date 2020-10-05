@@ -1,6 +1,7 @@
 <?php
 namespace Src\Components;
 
+use Src\Helpers\CommandRegistrator;
 use Src\Helpers\Printer;
 
 /**
@@ -10,15 +11,17 @@ use Src\Helpers\Printer;
  */
 class App{
     protected $printer;
-    protected $registry = [];
+    protected $registry;
 
     /**
-     * App constructor.
+     * App constructor. We can use different printers and cli command registrators, if needed
      * @param Printer|null $printer
+     * @param CommandRegistrator|null $registry
      */
-    public function __construct(Printer $printer = null)
+    public function __construct(Printer $printer = null, CommandRegistrator $registry = null)
     {
         $this->printer = $printer ?? new Printer();
+        $this->registry = $registry ?? new CommandRegistrator();
     }
 
     /**
@@ -29,22 +32,9 @@ class App{
         return $this->printer;
     }
 
-    /**
-     * @param $name
-     * @param $callableFunc
-     */
-    public function registerCommand($name, $callableFunc)
+    public function registerCommand($name, $callable)
     {
-        $this->registry[$name] = $callableFunc;
-    }
-
-    /**
-     * @param $command
-     * @return mixed|null
-     */
-    public function getCommand($command)
-    {
-        return isset($this->registry[$command]) ? $this->registry[$command] : null;
+        $this->registry->register($name, $callable);
     }
 
     /**
@@ -58,7 +48,7 @@ class App{
             $command_name = $argv[1];
         }
 
-        $command = $this->getCommand($command_name);
+        $command = $this->registry->getCommand($command_name);
         if ($command === null) {
             $this->getPrinter()->print("ERROR: Command " . $command_name . " not found!");
             exit;
