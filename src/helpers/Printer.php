@@ -1,5 +1,5 @@
 <?php
-namespace Src\Components;
+namespace Src\Helpers;
 
 /**
  * This class is responsible for console printing

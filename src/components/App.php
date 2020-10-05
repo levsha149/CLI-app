@@ -1,6 +1,8 @@
 <?php
 namespace Src\Components;
 
+use Src\Helpers\Printer;
+
 /**
  * main application class
  * Class App
