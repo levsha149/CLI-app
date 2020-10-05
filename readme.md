@@ -6,13 +6,17 @@ This is the project described in:
 
 I spent something close to 4-5 hours on it. You can try it on any server that supports PHP, Composer and command line interface.
 
+* * *
+
 <h3>Setting up the project:</h3>
 
-You'll need to download it and run "composer dump-autoload" to generate autoloader functions. After that the project is ready to go.
+First, you'll need to run "composer dump-autoload" to generate autoloader functions. After that the project is ready to go.
 
 I decided to put input file to the /input folder. Converted file will appear in /output folder. 
 A line "output_" will be aded to original file name.
 So, for example, if your source file was called "example.csv", then target file will be "output_example.csv".
+
+* * *
 
 <h3>Command description:</h3>
 
@@ -32,6 +36,8 @@ The script will show appropriate red warning messages if you'll type something w
 
 You can also use <b>php converter help</b> to see command signature.
 
+* * *
+
 <h3>Project structure:</h3>
 
 I tried to follow basic namespace and OOP logic. Main "src" folder contains next folders:
@@ -49,15 +55,22 @@ file type will require new parser, extended from BaseParser class.
 
 - <b>bootstrap.php</b> file - here you can register new commands either as controllers or anonymous functions. See comments there.
 
-<h3>Note:</h3>
+- <b>transitions</b> - here we store arrays of rules, by which data of each input file type will be converted.
+Each of those rules (or transitions) is an anonymous function (or array of functions) that will be applied, for example,
+to each CSV cell value (depending on that value type - string, numeric, date, etc.). Each array is stored in PHP file named by
+certain file extension - csv.php for CSV files, xls.php for Excel files and so on.
 
-I didn't have time to finish the logic of rows conversion, so right now it basically copies input file content 
-to the output file. As you stated in the documentation, the focus of this task was code structure, cleanliness, scalability,
-readability, documentation, OOP and knowledge/application of general programming principles - so I tried to build decent app structure
-first and work on conversion logic later. 
+* * *
 
-According to my plan, conversion of rows should be made in /src/parsers/CsvParser::convertRows() function. 
-This function receives prepared array of data, parsed form source CSV file.
-I've placed a TODO comment there, so you'll easily find it.
+<h3>Notes:</h3>
 
-I hope this readme was useful and readable :). Looking forward to your opinion on all this.
+I chose the simpliest variant of transitions storing, because I tried to finish job in 4 hours. I hope I understood your 
+task well in this regard. Also I skipped unit testing for the same reason - not enough time.
+
+I did not loaded it to any public repository (as you asked in documentation), but added gitignore files for demonstration purposes. 
+
+* * *
+
+I hope all this was useful and readable, or at least you had fun reading this :D.
+ 
+ Looking forward to your opinion.
