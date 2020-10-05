@@ -52,11 +52,12 @@ file type will require new parser, extended from BaseParser class.
 <h3>Note:</h3>
 
 I didn't have time to finish the logic of rows conversion, so right now it basically copies input file content 
-to the output file. As you stated in the documentation, the focus of this task was on code structure, cleanliness, scalability,
+to the output file. As you stated in the documentation, the focus of this task was code structure, cleanliness, scalability,
 readability, documentation, OOP and knowledge/application of general programming principles - so I tried to build decent app structure
 first and work on conversion logic later. 
 
-According to my plan, conversion of rows should be made in /src/parsers/CsvParser::convertRows() function. I've placed a TODO comment there,
-so you'll easily find it.
+According to my plan, conversion of rows should be made in /src/parsers/CsvParser::convertRows() function. 
+This function receives prepared array of data, parsed form source CSV file.
+I've placed a TODO comment there, so you'll easily find it.
 
 I hope this readme was useful and readable :). Looking forward to your opinion on all this.
