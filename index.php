@@ -1,8 +1,6 @@
 <?php
 error_reporting( E_ALL );
 ini_set( "display_errors", 1 );
-require __DIR__ . '/src/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
-use Components\TestClass;
-
-$obj = new TestClass();
+$app = require_once __DIR__ . '/src/app.php';
