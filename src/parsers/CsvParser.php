@@ -38,8 +38,7 @@ class CsvParser extends BaseParser
         }
         fclose($file);
 
-        //we suppose that first line always contains keys of CSV values
-        $result = $this->getResultArray($rows);
+        $result = $this->convertRows($rows);
 
         return $result;
     }
@@ -71,7 +70,7 @@ class CsvParser extends BaseParser
      * @param $rows
      * @return mixed
      */
-    public function getResultArray($rows)
+    public function convertRows($rows)
     {
         //TODO: here should be the logic of conversion for label row and data rows of target CSV file
 
