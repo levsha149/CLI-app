@@ -16,4 +16,9 @@ class Printer{
     {
         $this->out("\n");
     }
+
+    public function print($message){
+        $this->out($message);
+        $this->newline();
+    }
 }
