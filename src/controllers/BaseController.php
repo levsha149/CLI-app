@@ -56,4 +56,13 @@ abstract class BaseController
     {
         return $this->getApp()->getPrinter();
     }
+
+    /**
+     * prints error message to cli and stops the program
+     * @param $message
+     */
+    protected function fail($message){
+        $this->getPrinter()->error($message);
+        exit;
+    }
 }
