@@ -2,7 +2,7 @@
 
 This is the project described in:
 
-/docs/Software Engineer (PHP) - Engineering Assessment .pdf
+/docs/Software Engineer (PHP) - Engineering Assessment.pdf
 
 You can try it on any server that supports PHP, Composer and command line interface.
 
@@ -10,9 +10,9 @@ You can try it on any server that supports PHP, Composer and command line interf
 
 <h3>Setting up the project:</h3>
 
-First, you'll need to run "composer dump-autoload" to generate autoloader functions. After that the project is ready to go.
+First, you'll need to run "composer dump-autoload" to generate autoloader functions. A <b>/vendor</b> folder will be generated, and after that the project is ready to go.
 
-I decided to put input file to the /input folder. Converted file will appear in /output folder. 
+I decided to put input file to the <b>/input</b> folder. Converted file will appear in <b>/output</b> folder. 
 A line "output_" will be aded to original file name.
 So, for example, if your source file was called "example.csv", then target file will be "output_example.csv".
 
@@ -40,15 +40,15 @@ You can also use <b>php converter help</b> to see command signature.
 
 <h3>Project structure:</h3>
 
-I tried to follow basic namespace and OOP logic. Main "src" folder contains next folders:
+I tried to follow basic namespace and OOP logic. Main <b>/src</b> folder contains next folders:
 
 - <b>components</b> - contains main application components.
 
-- <b>controllers</b> - each controller connects certain command with certain Parser (business logic). If you'll need another command for, let's say, PDF conversion,
-PDF controller should be extended from BaseController class.
+- <b>controllers</b> - each controller connects certain command with certain Parser class (business logic). If you'll need another command for, let's say, PDF conversion,
+a PDF controller should be extended from BaseController class.
 
 - <b>helpers</b> - auxillary logic, such as printing different stuff in CLI (Printer class) and registration of new 
-commands and controllers (Registrator class). New printer and registrator classes can be extended from these basic classes, if need be.
+commands and controllers (Registrator class). New printer and registrator classes can be extended from these basic classes if needed.
 
 - <b>parsers</b> - parsers for different file types, they contain the conversion logic. Think of them as equivalent to Models in MVC paradigm. Each new
 file type will require new parser, extended from BaseParser class.
@@ -72,10 +72,8 @@ Output folder is where target files appear after conversion is done.
 I chose the simplest variant of transitions, because of time limit. Also I skipped unit testing for the same reason - not enough time.
 Transition storing method is not very elegant, but that's the closest thing to a working example, that I could produce in 4 hours.
 
-I did not loaded it to any public repository (as you asked in documentation), but added gitignore files for demonstration purposes. 
+I didn't upload it to any public repository (as you asked in documentation), but added gitignore files for demonstration purposes. 
 
 * * *
 
-I hope all this was useful and readable, or at least you had fun reading it :D.
- 
- Looking forward to your opinion.
+I hope all this was useful and readable :). Looking forward to your opinion.
