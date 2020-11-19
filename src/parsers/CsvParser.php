@@ -17,11 +17,11 @@ class CsvParser extends BaseParser
 
     /**
      * Parses csv content into array
-     * @param $filename
+     * @param string $filename
      * @return array
      * @throws \Exception
      */
-    public function parse($filename)
+    public function parse(string $filename)
     {
         $path = $this->getSourcePath($filename);
 
@@ -51,10 +51,10 @@ class CsvParser extends BaseParser
     }
 
     /**
-     * @param $filename
+     * @param string $filename
      * @return bool|false|int|string
      */
-    private function detectDelimiter($filename)
+    private function detectDelimiter(string $filename)
     {
         $path = $this->getSourcePath($filename);
         if($this->checkFile($path) && $this->checkExtension($path)){
@@ -138,11 +138,11 @@ class CsvParser extends BaseParser
     }
 
     /**
-     * @param $filename
+     * @param string $filename
      * @return bool
      * @throws \Exception
      */
-    public function convert($filename){
+    public function convert(string $filename){
 
         $rows = $this->parse($filename);
         $targetPath = $this->getTargetPath('output_'.$filename);

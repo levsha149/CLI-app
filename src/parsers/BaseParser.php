@@ -6,10 +6,10 @@ abstract class BaseParser{
 
     /**
      * parses file content into associative array
-     * @param $filename
+     * @param string $filename
      * @return mixed
      */
-    abstract public function parse($filename);
+    abstract public function parse(string $filename);
 
     /**
      * performs data transition logic
@@ -20,10 +20,10 @@ abstract class BaseParser{
 
     /**
      * main conversion function, should be called from controller
-     * @param $filename
+     * @param string $filename
      * @return mixed
      */
-    abstract public function convert($filename);
+    abstract public function convert(string $filename);
 
     /**
      * gets an array of rules of conversion of different data types in CSV file
@@ -45,10 +45,10 @@ abstract class BaseParser{
 
     /**
      * checks if file have correct extension
-     * @param $filename
+     * @param string $filename
      * @return bool
      */
-    protected function checkExtension($filename){
+    protected function checkExtension(string $filename){
         $file_parts = explode('.',$filename);
 
         if(count($file_parts) < 2 || end($file_parts) != static::$extension){
@@ -60,28 +60,28 @@ abstract class BaseParser{
 
     /**
      * checks if file physically present in input folder
-     * @param $filename
+     * @param string $filename
      * @return bool
      */
-    protected function checkFile($filename){
+    protected function checkFile(string $filename){
         return is_file($filename);
     }
 
     /**
-     * checks if file physically present in input folder
-     * @param $filename
+     * returns source file path
+     * @param string $filename
      * @return string
      */
-    protected function getSourcePath($filename){
+    protected function getSourcePath(string $filename){
         return __DIR__."/../../input/".$filename;
     }
 
     /**
-     * checks if file physically present in input folder
-     * @param $filename
+     * returns target file path
+     * @param string $filename
      * @return string
      */
-    protected function getTargetPath($filename){
+    protected function getTargetPath(string $filename){
         return __DIR__."/../../output/".$filename;
     }
 }

@@ -7,7 +7,12 @@ namespace Src\Helpers;
  * @package Src\Components
  */
 class Printer{
-    public function out($message)
+
+    /**
+     * general cli output function
+     * @param $message
+     */
+    public function out(string $message)
     {
         print_r($message);
     }
@@ -17,34 +22,38 @@ class Printer{
         $this->out("\n");
     }
 
-    public function print($message){
+    /**
+     * console output with new line after it
+     * @param string $message
+     */
+    public function print(string $message){
         $this->out($message);
         $this->newline();
     }
 
     /**
      * prints message to cli in red
-     * @param $message
+     * @param string $message
      */
-    public function error($message){
+    public function error(string $message){
         $this->out("\e[31m".$message."\e[0m");
         $this->newline();
     }
 
     /**
      * prints message to cli in green
-     * @param $message
+     * @param string $message
      */
-    public function success($message){
+    public function success(string $message){
         $this->out("\e[32m".$message."\e[0m");
         $this->newline();
     }
 
     /**
      * prints message to cli in yellow
-     * @param $message
+     * @param string $message
      */
-    public function info($message){
+    public function info(string $message){
         $this->out("\e[33m".$message."\e[0m");
         $this->newline();
     }

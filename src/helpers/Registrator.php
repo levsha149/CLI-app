@@ -52,11 +52,11 @@ class Registrator{
     }
 
     /**
-     * @param $command_name
+     * @param string $command_name
      * @return array|mixed|null
      * @throws \Exception
      */
-    public function getCallable($command_name)
+    public function getCallable(string $command_name)
     {
         $controller = $this->getController($command_name);
 
